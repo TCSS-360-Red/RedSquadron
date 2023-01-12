@@ -24,3 +24,11 @@ do not mess with it outside your text editor, it will prevent you from communica
 
 "Push": Uploads (and replaces) the files stored in your computer to the remote repository. This will overwrite the files in the remote repository.
 Be careful not to delete your teammates work!
+
+"Sync": Pull, then push. Necessary each time to prevent two contributors pushing the same change to the repository.
+
+[+] ONCE YOU GET SET UP [+]
+
+You can test your setup the same way you can test your compilers, by saying hello! Create a .txt file, name it [YOUR NAME]_HelloTeam.txt, save it
+to your local repository, then sync with the remote repository. You should see your text file appear here under "Pull requests" where we can
+double check your update won't create any conflicts.

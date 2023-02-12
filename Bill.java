@@ -1,5 +1,3 @@
-//import javax.sql.rowset.spi.SyncResolver;
-
 public class Bill implements Developer {
 
     public String getDevInfo() {

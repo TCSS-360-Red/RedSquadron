@@ -12,7 +12,7 @@ public class AboutWindow {
     private Developer devTeamInfo[];
 
     AboutWindow(){
-        devTeamInfo = new Developer[2];
+        devTeamInfo = new Developer[3];
         devTeamInfo[0] = new Miguel();
         devTeamInfo[1] = new Abdul();
         devTeamInfo[2] = new Bill();
@@ -30,9 +30,12 @@ public class AboutWindow {
 
         devTeamSize = devTeamInfo.length;
         devString = new String();
+        devString += "<html>";
         for(int i = 0; i < devTeamSize; i++) {
             devString += devTeamInfo[i].getDevInfo();
-            devString += "%n";
+            devString += "<br>";
+        }
+        devString += "</html>";
         myLabel.setText(devString);
 
         myWindow.setSize(500, 800);
@@ -45,5 +48,4 @@ public class AboutWindow {
     }
 
     
-}
 }

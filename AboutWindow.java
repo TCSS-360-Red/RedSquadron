@@ -15,6 +15,7 @@ public class AboutWindow {
         devTeamInfo = new Developer[2];
         devTeamInfo[0] = new Miguel();
         devTeamInfo[1] = new Abdul();
+        devTeamInfo[2] = new Bill();
         //Jacky, Bill, when you implement your Developer classes,
         //instantiate them here and update the array size on line 15;
         //

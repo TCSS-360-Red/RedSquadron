@@ -41,7 +41,7 @@ public class AboutWindow {
         myWindow.setSize(500, 800);
         myWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         myWindow.add(myLabel);
-       // myWindow.pack();
+        myWindow.pack();
 
         myWindow.setVisible(true);
 

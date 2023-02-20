@@ -12,10 +12,11 @@ public class AboutWindow {
     private Developer devTeamInfo[];
 
     AboutWindow(){
-        devTeamInfo = new Developer[3];
+        devTeamInfo = new Developer[4];
         devTeamInfo[0] = new Miguel();
         devTeamInfo[1] = new Abdul();
         devTeamInfo[2] = new Bill();
+        devTeamInfo[3] = new Jacky();
         //Jacky, Bill, when you implement your Developer classes,
         //instantiate them here and update the array size on line 15;
         //

@@ -59,7 +59,10 @@ public class TaskList {
         }
         return priceTotal;
     }
-
+    /**Get a copy of all tasks in list
+     * 
+     * @return an array representation of all tasks in the list.
+     */
     public Task[] copyList(){
         return (Task[])myTaskList.toArray();
     }

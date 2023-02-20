@@ -1,7 +1,7 @@
 import java.util.List;
 import java.util.*;
 /**
- * A list to store tasks and associated behaviour. A skeleton for History functionality has been created.
+ * A list to store tasks and associated behaviour. A skeleton for History/Header functionality has been created.
  * 
  * @author Miguel Ramos
  * @version Red.1
@@ -11,16 +11,15 @@ import java.util.*;
 public class TaskList {
     private List<Task> myTaskList;
     //private HistoryList myHistoryList;
-    private Random myRand;
     private int IDENTIFIER_UPPER_BOUND = 9999;
+    private int SIZE = 0;
    
     public TaskList(){
         myTaskList = new LinkedList<Task> ();
         //myHistoryList = new LinkedList<HistoryRecord> ();
-        myRand = new Random();
     }
 
-    //public TaskList(HistoryList theHistoryList){}
+    //public TaskList(HistoryList theHistoryList, Header theHeader){}
 
     /**Adds a task to the List.
      * 
@@ -30,9 +29,9 @@ public class TaskList {
      * @return On success, returns an integer you can use to find the task in the list (store this somewhere). Else, returns -1;
      */
     public int AddTask(String theDescription, float thePrice){
-        if(IDENTIFIER_UPPER_BOUND != 0) {
-            int identifier = myRand.nextInt(IDENTIFIER_UPPER_BOUND);
-            IDENTIFIER_UPPER_BOUND--;
+        if(SIZE != IDENTIFIER_UPPER_BOUND) {
+            int identifier = SIZE;
+            SIZE++;
             Task temp = new Task(theDescription, thePrice, identifier);
             myTaskList.add(temp);
             return identifier;
@@ -59,6 +58,10 @@ public class TaskList {
             priceTotal += myTaskLisIterator.next().getTaskCost();
         }
         return priceTotal;
+    }
+
+    public Task[] copyList(){
+        return (Task[])myTaskList.toArray();
     }
 
 

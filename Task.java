@@ -11,7 +11,7 @@ public class Task {
     private int myIdentifier;
 
     /* This class does not use a default constructor. */
-    private Task() {};
+    private Task(){};
 
     /**Instantiate a task with an associated cost, description, and identifier. */
     public Task (String theDescription, float theCost, int theID) {
@@ -27,6 +27,7 @@ public class Task {
     public String getTaskDescription(){
         return myTaskDescription;
     }
+    /**Compares Identifier fields. */
     public boolean compareID(int theID){
         return (theID == myIdentifier);
     

@@ -10,16 +10,19 @@ import java.util.*;
 
 public class TaskList {
     private List<Task> myTaskList;
-    //private HistoryList myHistoryList;
+    private HistoryList myHistoryList;
+    private Header myHeader;
     private int IDENTIFIER_UPPER_BOUND = 9999;
     private int SIZE = 0;
    
-    public TaskList(){
-        myTaskList = new LinkedList<Task> ();
-        //myHistoryList = new LinkedList<HistoryRecord> ();
-    }
+    //This class does not have a default constructor
+    private TaskList(){};
 
-    //public TaskList(HistoryList theHistoryList, Header theHeader){}
+    public TaskList(HistoryList theHistoryList, Header theHeader){
+        myTaskList = new LinkedList<Task>();
+        myHistoryList = theHistoryList;
+        myHeader = theHeader;
+    }
 
     /**Adds a task to the List.
      * 
@@ -34,6 +37,7 @@ public class TaskList {
             SIZE++;
             Task temp = new Task(theDescription, thePrice, identifier);
             myTaskList.add(temp);
+            myHistoryList.addHistory(theDescription, thePrice, identifier);
             return identifier;
         }
         return -1;

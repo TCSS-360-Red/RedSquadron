@@ -70,6 +70,7 @@ public class TaskList {
 
     /**Get a copy of the Header in it's current state.
      * 
+     * @return a copy of the Header in it's current state
      */
     public Header getHeaderState(){
         return myHeader.copy();

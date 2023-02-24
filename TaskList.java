@@ -15,14 +15,11 @@ public class TaskList {
     private int IDENTIFIER_UPPER_BOUND = 9999;
     private int SIZE = 0;
    
-    //This class does not have a default constructor
-    private TaskList(){};
-
-    public TaskList(HistoryList theHistoryList, Header theHeader){
+    public TaskList(){
         myTaskList = new LinkedList<Task>();
-        myHistoryList = theHistoryList;
-        myHeader = theHeader;
-    }
+        myHistoryList = new HistoryList();
+        myHeader = new Header();
+    };
 
     /**Adds a task to the List.
      * 
@@ -69,6 +66,13 @@ public class TaskList {
      */
     public Task[] copyList(){
         return (Task[])myTaskList.toArray();
+    }
+
+    /**Get a copy of the Header in it's current state.
+     * 
+     */
+    public Header getHeaderState(){
+        return myHeader.copy();
     }
 
 

@@ -78,7 +78,10 @@ public class TaskList {
     public Header getHeaderState(){
         return myHeader.copy();
     }
-
+    /**Assign a new Header. Use to allow user to edit header fields.
+     * 
+     * @param theHeader the new Header with updated information.
+     */
     public void AssignHeader(Header theHeader){
         myHeader.setProjectName(theHeader.getProjectName());
         myHeader.setProjectBudget(theHeader.getProjectBudget());

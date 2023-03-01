@@ -93,11 +93,11 @@ public class CommandLineInterface {
     private boolean executeCommand(char theCommand) {
         if(theCommand == 'a') {
             QueryUserForTask();
-            //clearScreen();
+            clearScreen();
             return false;
         }
         else if(theCommand == 's') {
-            //clearScreen();
+            clearScreen();
             FormatTaskList();
             return false;
         }

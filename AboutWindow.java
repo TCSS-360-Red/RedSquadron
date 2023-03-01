@@ -47,6 +47,5 @@ public class AboutWindow {
         myWindow.setVisible(true);
 
     }
-
     
 }

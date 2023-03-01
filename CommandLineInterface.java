@@ -32,13 +32,20 @@ public class CommandLineInterface {
 
     private void QueryUserForTask(){
         System.out.print("\nDescribe your task: ");
-        String tempDescriptor = in.next();
+        String tempDescriptor = new String();
+        tempDescriptor = "";
+        tempDescriptor = in.next();
         System.out.print("\nHow much do you think that's going to cost?");
         String Buffer = in.next();
         Float tempCost = Float.parseFloat(Buffer);
+
         if(tempDescriptor.isEmpty()){
             System.out.print("Somethings fucking up the String input");
         }
+        else{
+            System.out.print(tempDescriptor);
+        }
+
         myTaskList.AddTask(tempDescriptor, tempCost);
     }
 
@@ -52,7 +59,7 @@ public class CommandLineInterface {
         System.out.println("+++++++++++TASKS+++++++++++\n");
         for(int i = 0; i < myTasks.length; i++){
             System.out.println ("[" + i +"] ");
-            System.out.print(myTasks[i].getTaskDescription());
+            System.out.println(myTasks[i].getTaskDescription());
             System.out.print("                Cost: ");
             System.out.print(myTasks[i].getTaskCost());
             System.out.print("\n");
@@ -86,11 +93,11 @@ public class CommandLineInterface {
     private boolean executeCommand(char theCommand) {
         if(theCommand == 'a') {
             QueryUserForTask();
-            clearScreen();
+            //clearScreen();
             return false;
         }
         else if(theCommand == 's') {
-            clearScreen();
+            //clearScreen();
             FormatTaskList();
             return false;
         }

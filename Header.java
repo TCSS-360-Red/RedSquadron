@@ -16,7 +16,7 @@ public class Header {
         myProjectName = "UNTITLED PROJECT";
         myProjectBudget = (float) 0.0;
         myCurrentSpending = (float) 0.0;
-        myProjectDueDate = 0;
+        myProjectDueDate = java.time.LocalDate.now();
         myCurrentDate = java.time.LocalDate.now();
     }
 

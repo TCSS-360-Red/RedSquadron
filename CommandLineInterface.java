@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class CommandLineInterface {
     private Scanner in;
     private TaskList myTaskList;
-    private String menuString = "\n[BUDGET BALANCER 2999]\na) - add a task to your budget\ns) - see all tasks in project";
+    private String menuString = "\n[BUDGET BALANCER 2999]\na) - add a task to your budget\ns) - see all tasks in project\ne) - edit your header";
 
     public CommandLineInterface(){
         in = new Scanner(System.in).useDelimiter("\n");
@@ -75,12 +75,19 @@ public class CommandLineInterface {
         System.out.print("Please enter a new name for your project: ");
         newProjectName = in.next();
         System.out.print("\nPlease enter a new budget for your project: ");
-        newProjectBudget = in.nextFloat();
-        System.out.print("Please enter A date in the following format [xxxx-xx-xx]: ");
-        int year = in.nextInt();
-        int month = in.nextInt();
-        int day = in.nextInt();
+        String floatBuffer = in.next();
+        newProjectBudget = Float.parseFloat(floatBuffer);
+        System.out.print("Please enter a date in the following format [xxxx-xx-xx]: ");
+        String dateBuffer = in.next();
+        dateBuffer += "-";
+        String DateTokens [] = dateBuffer.split("-");
+
+        DateTokens[2] = DateTokens[2].substring(0,2);
+        int year = Integer.parseInt(DateTokens[0]);
+        int month = Integer.parseInt(DateTokens[1]);
+        int day = Integer.parseInt(DateTokens[2]);
         newProjectDueDate = LocalDate.of(year, month, day);
+
 
         Header temp = new Header();
         temp.setProjectName(newProjectName);
@@ -101,6 +108,11 @@ public class CommandLineInterface {
             FormatTaskList();
             return false;
         }
+        else if(theCommand == 'e'){
+            HeaderAssignmentWizard();
+            clearScreen();
+            return false;
+            }
         else {
             return true;
         }
@@ -118,6 +130,7 @@ public class CommandLineInterface {
             char nextCommand = getInputCommand();
             isDone = executeCommand(nextCommand);
         }
+        in.close();
     }
 
     

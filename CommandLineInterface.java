@@ -1,5 +1,13 @@
 import java.time.LocalDate;
 import java.util.Scanner;
+/**
+ * A command line prototype to demo the Budget Balancer 3000. Extremely fragile, not
+ * intended for extended use beyond a code showcase and bugtesting our backend objects.
+ * 
+ * @author Miguel ramos
+ * @version Red.1
+ * 
+ */
 
 public class CommandLineInterface {
     private Scanner in;

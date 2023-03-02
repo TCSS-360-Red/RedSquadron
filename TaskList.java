@@ -34,6 +34,7 @@ public class TaskList {
             SIZE++;
             Task temp = new Task(theDescription, thePrice, identifier);
             myTaskList.add(temp);
+            myHeader.updateCurrentSpending(totalCost());
             myHistoryList.addHistory(theDescription, thePrice, identifier);
             return identifier;
         }
@@ -65,7 +66,9 @@ public class TaskList {
      * @return an array representation of all tasks in the list.
      */
     public Task[] copyList(){
-        return (Task[])myTaskList.toArray();
+        Task[] copy = new Task[myTaskList.size()];
+        myTaskList.toArray(copy);
+        return copy;
     }
 
     /**Get a copy of the Header in it's current state.
@@ -75,6 +78,12 @@ public class TaskList {
     public Header getHeaderState(){
         return myHeader.copy();
     }
-
-
-}
+    /**Assign a new Header. Use to allow user to edit header fields.
+     * 
+     * @param theHeader the new Header with updated information.
+     */
+    public void AssignHeader(Header theHeader){
+        myHeader.setProjectName(theHeader.getProjectName());
+        myHeader.setProjectBudget(theHeader.getProjectBudget());
+        myHeader.setDueDate(theHeader.getDueDate());
+    }

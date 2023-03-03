@@ -1,28 +1,57 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.io.*;
+import java.util.*;
 
+/**
+ * A list to store the history of tasks.
+ * Each history item is represented as a map that contains the time, heading, and task content.
+ * The history can be saved to a .txt file.
+ * The implementation assumes that the .txt file has the following format:
+ * Each line in the file represents a single history item, and contains the following fields separated by commas:
+ * time,heading,task_content
+ * 
+ * @author Ngou In Chu
+ * @version Red.1
+ */
 public class HistoryList {
-    private List<String> history; //Miguel: A history record needs to also map a time it was created. 
-                                  //suggestion: create a HistoryRecord data type with the task and the time of creation.
+    private List<Map<String, String>> historyList;
 
     public HistoryList() {
-        history = new ArrayList<>();
+        historyList = new ArrayList<>();
     }
 
-    public void addHistory(String taskDescription, float taskCost, int taskID) {
-        String task = "Task ID " + taskID + ": " + taskDescription + " ($" + taskCost + ")";
-        history.add(task);
+    /**
+     * Adds a new history item to the list.
+     * 
+     * @param heading the heading for the history item.
+     * @param content the task content for the history item.
+     */
+    public void addHistory(String heading, String content) {
+        Map<String, String> item = new HashMap<>();
+        item.put("time", new Date().toString());
+        item.put("heading", heading);
+        item.put("content", content);
+        historyList.add(item);
     }
 
-    public void displayHistory() {                  //Miguel: This will output to a console. Useful for bugtesting, but not for the final app
-        System.out.println("Task history:");     //suggestion: create a function that will return a copy of your history list for the HistoryWindow
-        for (String task : history) {
-            System.out.println(task);
+    /**
+     * Saves the history to a .txt file.
+     * The file is saved in the current directory with the given file name.
+     * Each line in the file represents a single history item, and contains the following fields separated by commas:
+     * time,heading,task_content
+     * 
+     * @param fileName the name of the file to save the history to.
+     */
+    public void saveHistory(String fileName) {
+        try {
+            FileWriter writer = new FileWriter(fileName);
+            for (Map<String, String> item : historyList) {
+                String line = item.get("time") + "," + item.get("heading") + "," + item.get("content") + "\n";
+                writer.write(line);
+            }
+            writer.close();
+        } catch (IOException e) {
+            System.out.println("An error occurred while saving the history to file.");
+            e.printStackTrace();
         }
     }
-
-    // Method to display the task history
-    //public void displayHistory() {
-    //    myHistoryList.displayHistory();
-    //}
 }

@@ -1,57 +1,54 @@
-import java.io.*;
-import java.util.*;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.util.List;
 
-/**
- * A list to store the history of tasks.
- * Each history item is represented as a map that contains the time, heading, and task content.
- * The history can be saved to a .txt file.
- * The implementation assumes that the .txt file has the following format:
- * Each line in the file represents a single history item, and contains the following fields separated by commas:
- * time,heading,task_content
- * 
- * @author Ngou In Chu
- * @version Red.1
- */
 public class HistoryList {
-    private List<Map<String, String>> historyList;
+    private static final String FILENAME = "history.txt";
 
     public HistoryList() {
-        historyList = new ArrayList<>();
     }
 
-    /**
-     * Adds a new history item to the list.
-     * 
-     * @param heading the heading for the history item.
-     * @param content the task content for the history item.
-     */
-    public void addHistory(String heading, String content) {
-        Map<String, String> item = new HashMap<>();
-        item.put("time", new Date().toString());
-        item.put("heading", heading);
-        item.put("content", content);
-        historyList.add(item);
-    }
+    public void addHistory(String taskDescription, float taskCost, int taskIdentifier) {
+        try (FileWriter fw = new FileWriter(FILENAME, true);
+             PrintWriter pw = new PrintWriter(fw)) {
 
-    /**
-     * Saves the history to a .txt file.
-     * The file is saved in the current directory with the given file name.
-     * Each line in the file represents a single history item, and contains the following fields separated by commas:
-     * time,heading,task_content
-     * 
-     * @param fileName the name of the file to save the history to.
-     */
-    public void saveHistory(String fileName) {
-        try {
-            FileWriter writer = new FileWriter(fileName);
-            for (Map<String, String> item : historyList) {
-                String line = item.get("time") + "," + item.get("heading") + "," + item.get("content") + "\n";
-                writer.write(line);
-            }
-            writer.close();
+            // Get the current date and time
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            Date date = new Date();
+            String dateString = formatter.format(date);
+
+            // Write the header information
+            Header header = TaskList.getHeaderState();
+            pw.println("Project Name: " + header.getProjectName());
+            pw.println("Project Budget: " + header.getProjectBudget());
+            pw.println("Due Date: " + header.getDueDate());
+
+            // Write the task information
+            pw.println("Task Description: " + taskDescription);
+            pw.println("Task Cost: " + taskCost);
+            pw.println("Task Identifier: " + taskIdentifier);
+
+            // Write the timestamp
+            pw.println("Timestamp: " + dateString);
+
+            pw.flush();
+
         } catch (IOException e) {
-            System.out.println("An error occurred while saving the history to file.");
-            e.printStackTrace();
+            System.err.println("Error writing to file: " + e.getMessage());
+        }
+    }
+
+    public void printHistory() {
+        try {
+            List<String> lines = Files.readAllLines(Paths.get(FILENAME));
+            for (String line : lines) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            System.err.println("Error reading file: " + e.getMessage());
         }
     }
 }

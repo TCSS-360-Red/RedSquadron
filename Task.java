@@ -19,6 +19,12 @@ public class Task {
         myTaskCost = theCost;
         myIdentifier = theID;
     }
+    /**Instantiate a copy of another Task.   */
+    public Task(Task toCopy){
+        myTaskDescription = toCopy.myTaskDescription;
+        myTaskCost = toCopy.myTaskCost;
+        myIdentifier = toCopy.myIdentifier;
+    }
     /**Returns a task's associated cost. */
     public float getTaskCost(){
         return myTaskCost;

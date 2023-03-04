@@ -20,7 +20,6 @@ public class TaskList {
         myHistoryList = new HistoryList();
         myHeader = new Header();
     };
-
     /**Adds a task to the List.
      * 
      * @param theDescription a String description of the task.
@@ -70,7 +69,6 @@ public class TaskList {
         myTaskList.toArray(copy);
         return copy;
     }
-
     /**Get a copy of the Header in it's current state.
      * 
      * @return a copy of the Header in it's current state
@@ -87,3 +85,6 @@ public class TaskList {
         myHeader.setProjectBudget(theHeader.getProjectBudget());
         myHeader.setDueDate(theHeader.getDueDate());
     }
+
+
+}

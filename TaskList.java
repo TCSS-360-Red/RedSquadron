@@ -86,5 +86,9 @@ public class TaskList {
         myHeader.setDueDate(theHeader.getDueDate());
     }
 
+    public HistoryRecord[] getHistoryList(){
+        //return myHistoryList.copyList();                  Bill, write a function called copyList which will return an array of all HistoryRecords stored
+    }
+
 
 }

@@ -8,6 +8,11 @@ public class HistoryWindow extends JFrame {
     private JScrollPane scrollPane;
     private JList<HistoryList> list;
 
+    //Miguel: Suggested function
+    //void update(HistoryRecords [] theHistory){    
+        //print thehistory;
+   //}
+
     public HistoryWindow(HistoryList historyList) {
         super("History");
         this.setSize(500, 300);

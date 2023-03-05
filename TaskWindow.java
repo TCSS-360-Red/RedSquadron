@@ -27,7 +27,7 @@ public class TaskWindow extends JFrame {
     private void initialize() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 800, 600);
-        setTitle("Budget Balancer 3000 - Task List");
+        setTitle("Budget Balancer 3000");
 
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

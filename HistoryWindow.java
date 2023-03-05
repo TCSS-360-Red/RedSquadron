@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public class HistoryWindow extends JFrame {
     private HistoryList historyList;
-    private ArrayList<HistoryLog> logs;
+    private ArrayList<HistoryList> logs;
     private JScrollPane scrollPane;
-    private JList<HistoryLog> list;
+    private JList<HistoryList> list;
 
     public HistoryWindow(HistoryList historyList) {
         super("History");
@@ -16,8 +16,8 @@ public class HistoryWindow extends JFrame {
         this.historyList = new HistoryList();
         logs = historyList.printHistory();
 
-        DefaultListModel<HistoryLog> model = new DefaultListModel<>();
-        for (HistoryLog log : logs) {
+        DefaultListModel<HistoryList> model = new DefaultListModel<>();
+        for (HistoryList log : logs) {
             model.addElement(log);
         }
 

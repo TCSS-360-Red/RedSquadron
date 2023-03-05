@@ -17,10 +17,6 @@ public class AboutWindow {
         devTeamInfo[1] = new Abdul();
         devTeamInfo[2] = new Bill();
         devTeamInfo[3] = new Jacky();
-        //Jacky, Bill, when you implement your Developer classes,
-        //instantiate them here and update the array size on line 15;
-        //
-        //
         myWindow = new JFrame("About");
         myLabel = new JLabel();
     }

@@ -34,7 +34,7 @@ public class HistoryRecord {
         myChangeType = theChangeType;
     }
     //Bill, Create setters ONLY for this class.
-    //See Task.java for an example of how to create a data abstraction.
+    //See Task.java for an example of how to create a data abstraction (by which I mean, copy Task.java).
     //When done, add an author comment to the top and author comments to each
     //function you provide.
 }

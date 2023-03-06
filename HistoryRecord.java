@@ -35,22 +35,22 @@ public class HistoryRecord {
         myChangeType = theChangeType;
     }
     
-    /**
-     * Gets the task associated with this history record.
+    /**Gets the task associated with this history record.
+     * @autho Ngou In Chu
      */
     public Task getTask() {
         return myTask;
     }
 
-    /**
-     * Gets the date and time associated with this history record.
+    /**Gets the date and time associated with this history record.
+     * @author Ngou In chu
      */
     public LocalDateTime getDateAndTime() {
         return myDateAndTime;
     }
 
-    /**
-     * Gets the type of change associated with this history record.
+    /**Gets the type of change associated with this history record.
+     * @author Ngou In Chu
      */
     public int getChangeType() {
         return  myChangeType;

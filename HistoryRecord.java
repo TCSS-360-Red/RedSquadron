@@ -33,8 +33,31 @@ public class HistoryRecord {
         myDateAndTime = LocalDateTime().now(); 
         myChangeType = theChangeType;
     }
-    //Bill, Create setters ONLY for this class.
-    //See Task.java for an example of how to create a data abstraction (by which I mean, copy Task.java).
-    //When done, add an author comment to the top and author comments to each
-    //function you provide.
+    
+    /**
+     * Sets the task associated with this history record.
+     * 
+     * @param task the task to set
+     */
+    public void setTask(Task task) {
+        myTask = new Task(task);
+    }
+
+    /**
+     * Sets the date and time associated with this history record.
+     * 
+     * @param dateTime the date and time to set
+     */
+    public void setDateAndTime(LocalDateTime dateTime) {
+        myDateAndTime = dateTime;
+    }
+
+    /**
+     * Sets the type of change associated with this history record.
+     * 
+     * @param changeType the change type to set
+     */
+    public void setChangeType(int changeType) {
+        myChangeType = changeType;
+    }
 }

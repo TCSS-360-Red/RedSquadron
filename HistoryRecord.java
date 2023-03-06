@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
  * Designed by Miguel Ramos, implementation by Ngou In Chu
  * 
  * @author Miguel Ramos
+ * @author Ngou In Chu
  * @version Red 1
  * 
  */
@@ -30,34 +31,28 @@ public class HistoryRecord {
      */
     public HistoryRecord(Task theTask, int theChangeType){
         myTask = new Task(theTask);
-        myDateAndTime = LocalDateTime().now(); 
+        myDateAndTime = LocalDateTime.now(); 
         myChangeType = theChangeType;
     }
     
     /**
-     * Sets the task associated with this history record.
-     * 
-     * @param task the task to set
+     * Gets the task associated with this history record.
      */
-    public void setTask(Task task) {
-        myTask = new Task(task);
+    public Task getTask() {
+        return myTask;
     }
 
     /**
-     * Sets the date and time associated with this history record.
-     * 
-     * @param dateTime the date and time to set
+     * Gets the date and time associated with this history record.
      */
-    public void setDateAndTime(LocalDateTime dateTime) {
-        myDateAndTime = dateTime;
+    public LocalDateTime getDateAndTime() {
+        return myDateAndTime;
     }
 
     /**
-     * Sets the type of change associated with this history record.
-     * 
-     * @param changeType the change type to set
+     * Gets the type of change associated with this history record.
      */
-    public void setChangeType(int changeType) {
-        myChangeType = changeType;
+    public int getChangeType() {
+        return  myChangeType;
     }
 }

@@ -7,9 +7,10 @@ import java.util.List;
  * Records are stored in the order they were added.
  * 
  * @author Ngou In Chu
+ * @version 3.0
  */
 public class HistoryList {
-    private List<HistoryRecord> history;
+    public List<HistoryRecord> history;
 
     public HistoryList() {
         history = new ArrayList<HistoryRecord>();
@@ -42,10 +43,10 @@ public class HistoryList {
      * A private inner class to represent a history record.
      * Contains the description, price, and identifier of a task.
      */
-    private class HistoryRecord {
-        private String description;
-        private float price;
-        private int identifier;
+    public class HistoryRecord {
+        public String description;
+        public float price;
+        public int identifier;
 
         public HistoryRecord(String theDescription, float thePrice, int theIdentifier) {
             description = theDescription;

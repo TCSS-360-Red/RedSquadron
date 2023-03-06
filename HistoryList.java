@@ -1,54 +1,68 @@
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Date;
-import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A list to store the history of tasks added to the TaskList.
+ * Each history record contains the description, price, and identifier of the associated task.
+ * Records are stored in the order they were added.
+ * 
+ * @author Ngou In Chu
+ */
 public class HistoryList {
-    private static final String FILENAME = "history.txt";
+    private List<HistoryRecord> history;
 
     public HistoryList() {
+        history = new ArrayList<HistoryRecord>();
     }
 
-    public void addHistory(String taskDescription, float taskCost, int taskIdentifier) { //Miguel: This writes to a file, which may be useful for File I/O
-        try (FileWriter fw = new FileWriter(FILENAME, true);                     //but I think it would be more efficient to use a list.
-             PrintWriter pw = new PrintWriter(fw)) {
+    /**
+     * Add a new history record to the list.
+     * 
+     * @param theDescription a String description of the task
+     * @param thePrice a Float to represent the associated cost of the Task
+     * @param identifier an integer to represent the task's identifier in the TaskList
+     */
+    public void addHistory(String theDescription, float thePrice, int identifier) {
+        HistoryRecord newRecord = new HistoryRecord(theDescription, thePrice, identifier);
+        history.add(newRecord);
+    }
 
-            // Get the current date and time
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); 
-            Date date = new Date();
-            String dateString = formatter.format(date);
+    /**
+     * Return an array of all history records stored in the list.
+     * 
+     * @return an array of HistoryRecord objects
+     */
+    public HistoryRecord[] getHistoryList() {
+        HistoryRecord[] historyArray = new HistoryRecord[history.size()];
+        history.toArray(historyArray);
+        return historyArray;
+    }
 
-            // Write the header information
-            Header header = TaskList.getHeaderState();
-            pw.println("Project Name: " + header.getProjectName());
-            pw.println("Project Budget: " + header.getProjectBudget());
-            pw.println("Due Date: " + header.getDueDate());
+    /**
+     * A private inner class to represent a history record.
+     * Contains the description, price, and identifier of a task.
+     */
+    private class HistoryRecord {
+        private String description;
+        private float price;
+        private int identifier;
 
-            // Write the task information
-            pw.println("Task Description: " + taskDescription);
-            pw.println("Task Cost: " + taskCost);
-            pw.println("Task Identifier: " + taskIdentifier);
-
-            // Write the timestamp
-            pw.println("Timestamp: " + dateString);
-
-            pw.flush();
-
-        } catch (IOException e) {
-            System.err.println("Error writing to file: " + e.getMessage());
+        public HistoryRecord(String theDescription, float thePrice, int theIdentifier) {
+            description = theDescription;
+            price = thePrice;
+            identifier = theIdentifier;
         }
-    }
 
-    public void printHistory() {                                           //Miguel: This also prints to the console, which is not what the 
-        try {                                                              //class is supposed to do. Instead of a printHistory() function, we need
-            List<String> lines = Files.readAllLines(Paths.get(FILENAME));  //a getHistory function that returns an array of each historyRecord recorded.
-            for (String line : lines) {                                   
-                System.out.println(line);
-            }
-        } catch (IOException e) {
-            System.err.println("Error reading file: " + e.getMessage());
+        public String getDescription() {
+            return description;
+        }
+
+        public float getPrice() {
+            return price;
+        }
+
+        public int getIdentifier() {
+            return identifier;
         }
     }
 }

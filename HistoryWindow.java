@@ -4,14 +4,9 @@ import java.util.ArrayList;
 
 public class HistoryWindow extends JFrame {
     private HistoryList historyList;
-    private ArrayList<HistoryList> logs;
+    //private ArrayList<HistoryList> logs;
     private JScrollPane scrollPane;
     private JList<HistoryList> list;
-
-    //Miguel: Suggested function
-    //void update(HistoryRecords [] theHistory){    
-        //print thehistory;
-   //}
 
     public HistoryWindow(HistoryList historyList) {
         super("History");
@@ -19,7 +14,7 @@ public class HistoryWindow extends JFrame {
         this.setLayout(new BorderLayout());
 
         this.historyList = new HistoryList();
-        logs = historyList.printHistory();
+        //logs = historyList.printHistory();
 
         DefaultListModel<HistoryList> model = new DefaultListModel<>();
         for (HistoryList log : logs) {
@@ -31,5 +26,18 @@ public class HistoryWindow extends JFrame {
 
         scrollPane = new JScrollPane(list);
         this.add(scrollPane, BorderLayout.CENTER);
+    }
+
+    //Miguel: Suggested function
+    //void update(HistoryRecords [] theHistory){    
+        //print thehistory;
+   //}
+
+    public void update(HistoryRecord[] theHistory) {
+        DefaultListModel<HistoryRecord> model = (DefaultListModel<HistoryRecord>) list.getModel();
+        for (HistoryRecord log : theHistory) {
+            model.addElement(log);
+        }
+        list.setModel(model);
     }
 }

@@ -7,7 +7,7 @@ import java.util.List;
  * Records are stored in the order they were added.
  * 
  * @author Ngou In Chu
- * @version 3.0
+ * @version Red 1
  */
 public class HistoryList {
     public List<HistoryRecord> history;

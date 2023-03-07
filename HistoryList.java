@@ -39,31 +39,4 @@ public class HistoryList {
         return historyArray;
     }
 
-    /**
-     * A private inner class to represent a history record.
-     * Contains the description, price, and identifier of a task.
-     */
-    public class HistoryRecord {
-        public String description;
-        public float price;
-        public int identifier;
-
-        public HistoryRecord(String theDescription, float thePrice, int theIdentifier) {
-            description = theDescription;
-            price = thePrice;
-            identifier = theIdentifier;
-        }
-
-        public String getDescription() {
-            return description;
-        }
-
-        public float getPrice() {
-            return price;
-        }
-
-        public int getIdentifier() {
-            return identifier;
-        }
-    }
 }

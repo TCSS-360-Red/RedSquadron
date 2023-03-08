@@ -1,12 +1,12 @@
-//import java.awt.event.*;
-//import javax.swing.*;
+import java.awt.event.*;
+import javax.swing.*;
 
 public class Main {
     public static void main (String[] arg) {
-        CommandLineInterface theInterface = new CommandLineInterface();
+        CommandLineInterface CLI = new CommandLineInterface();
 
-        theInterface.run();
-        
-
+        CLI.run();
     }
+        
+        
 }

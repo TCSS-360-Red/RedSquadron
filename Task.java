@@ -13,6 +13,12 @@ public class Task {
     /* This class does not use a default constructor. */
     private Task(){};
 
+    public Task(Task theTask){
+        myTaskDescription = theTask.myTaskDescription;
+        myTaskCost = theTask.myTaskCost;
+        myIdentifier = theTask.myIdentifier;
+    }
+
     /**Instantiate a task with an associated cost, description, and identifier. */
     public Task (String theDescription, float theCost, int theID) {
         myTaskDescription = theDescription;

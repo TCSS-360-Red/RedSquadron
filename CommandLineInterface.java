@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class CommandLineInterface {
     private Scanner in;
     private TaskList myTaskList;
-    private String menuString = "\n[BUDGET BALANCER 2999]\na) - add a task to your budget\ns) - see all tasks in project\ne) - edit your header";
+    private String menuString = "\n[BUDGET BALANCER 2999]\na) - add a task to your budget\ns) - see all tasks in project\ne) - edit your header\nh) - history list";
 
     public CommandLineInterface(){
         in = new Scanner(System.in).useDelimiter("\n");
@@ -36,6 +36,40 @@ public class CommandLineInterface {
         System.out.print("\nCurrent Date: " + theHeader.getCurrentDate().toString());
         System.out.print("\n********************************************");
 
+    }
+
+    private void FormatHistoryRecord(HistoryRecord theRecord){
+        String RecordString = new String();
+        RecordString += theRecord.getDateAndTime().toString();
+
+        if(theRecord.getChangeType() == 0){
+            RecordString += " [Task ADDED]: ";
+            RecordString += theRecord.getTask().getTaskDescription();
+            RecordString += "\n***************************************\n";
+        }
+        if(theRecord.getChangeType() == 1){
+            RecordString += " [Task ADDED]: ";
+            RecordString += theRecord.getTask().getTaskDescription();
+            RecordString += "\n***************************************\n";
+        }
+
+        System.out.println(RecordString);
+
+    }
+
+    private void printHistory() {
+        HistoryRecord [] history = myTaskList.getHistoryList();
+        int size = history.length;
+        if(size = 0){
+            "Looks like you haven't done anything with your project!"
+            return;
+        }
+
+        System.out.println("HISTORY\n**********************************");
+        for(int i = 0; i < size; i++){
+            FormatHistoryRecord(history[i]);
+        }
+        System.out.println("******************************");
     }
 
     private void QueryUserForTask(){
@@ -121,6 +155,11 @@ public class CommandLineInterface {
             clearScreen();
             return false;
             }
+        else if(theCommand == 'h'){
+            printHistory();
+            return false;
+
+        }
         else {
             return true;
         }

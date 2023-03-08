@@ -88,5 +88,9 @@ public class TaskList {
         myHeader.setDueDate(theHeader.getDueDate());
     }
 
+    public HistoryRecord [] getHistoryList(){
+        return myHistoryList.getHistoryList();
+    }
+
 
 }

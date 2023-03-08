@@ -1,28 +1,41 @@
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A list to store the history of tasks added to the TaskList.
+ * Each history record contains the description, price, and identifier of the associated task.
+ * Records are stored in the order they were added.
+ * 
+ * @author Ngou In Chu
+ * @version Red 1
+ */
 public class HistoryList {
-    private List<String> history; //Miguel: A history record needs to also map a time it was created. 
-                                  //suggestion: create a HistoryRecord data type with the task and the time of creation.
+    public List<HistoryRecord> history;
 
     public HistoryList() {
-        history = new ArrayList<>();
+        history = new ArrayList<HistoryRecord>();
     }
 
-    public void addHistory(String taskDescription, float taskCost, int taskID) {
-        String task = "Task ID " + taskID + ": " + taskDescription + " ($" + taskCost + ")";
-        history.add(task);
+    /**
+     * Add a new history record to the list.
+     * 
+     * @param theTask the change of task
+     * @param theChangeType the state of changing the task
+     */
+    public void addHistory(Task theTask, int theChangeType) {
+        HistoryRecord newRecord = new HistoryRecord(theTask, theChangeType);
+        history.add(newRecord);
     }
 
-    public void displayHistory() {                  //Miguel: This will output to a console. Useful for bugtesting, but not for the final app
-        System.out.println("Task history:");     //suggestion: create a function that will return a copy of your history list for the HistoryWindow
-        for (String task : history) {
-            System.out.println(task);
-        }
+    /**
+     * Return an array of all history records stored in the list.
+     * 
+     * @return an array of HistoryRecord objects
+     */
+    public HistoryRecord[] getHistoryList() {
+        HistoryRecord[] historyArray = new HistoryRecord[history.size()];
+        history.toArray(historyArray);
+        return historyArray;
     }
 
-    // Method to display the task history
-    //public void displayHistory() {
-    //    myHistoryList.displayHistory();
-    //}
 }

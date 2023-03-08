@@ -35,7 +35,7 @@ public class HistoryRecord {
         myChangeType = theChangeType;
     }
     
-    /**Gets the task associated with this history record.
+    /** Gets the task associated with this history record.
      * @autho Ngou In Chu
      */
     public Task getTask() {

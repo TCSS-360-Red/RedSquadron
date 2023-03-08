@@ -34,7 +34,7 @@ public class TaskList {
             Task temp = new Task(theDescription, thePrice, identifier);
             myTaskList.add(temp);
             myHeader.updateCurrentSpending(totalCost());
-            myHistoryList.addHistory(theDescription, thePrice, identifier);
+            myHistoryList.addHistory(temp, 0);
             return identifier;
         }
         return -1;

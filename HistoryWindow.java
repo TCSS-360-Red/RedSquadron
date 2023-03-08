@@ -28,16 +28,34 @@ public class HistoryWindow extends JFrame {
         this.add(scrollPane, BorderLayout.CENTER);
     }
 
-    //Miguel: Suggested function
-    //void update(HistoryRecords [] theHistory){    
-        //print thehistory;
-   //}
 
-    public void update(HistoryRecord[] theHistory) {
-        DefaultListModel<HistoryRecord> model = (DefaultListModel<HistoryRecord>) list.getModel();
-        for (HistoryRecord log : theHistory) {
-            model.addElement(log);
+    
+    //Miguel: Suggested function
+    void update(HistoryRecords [] theHistory){
+        JLabel[] labels = new JLabel[history.length];
+        int y = history.length;
+        static JFrame f;
+        for(int i=0; i<history.length; i++) {
+                JLabel task = new JLabel(HistoryRecord.getTask());
+                JLabel type = new JLabel(HistoryRecord.myChangeType());
+                JLabel time = new JLabel(HistoryRecord.myDateAndTime());
+                // create a panel
+                JPanel p = new JPanel();
+                // add label to panel
+                p.add(task + type + time);
+                // add panel to frame
+                f.add(p);
+                // set the size of frame
+                f.setSize(300, 300);
+                f.show();
         }
-        list.setModel(model);
     }
+
+    // public void update(HistoryRecord[] theHistory) {
+    //     DefaultListModel<HistoryRecord> model = (DefaultListModel<HistoryRecord>) list.getModel();
+    //     for (HistoryRecord log : theHistory) {
+    //         model.addElement(log);
+    //     }
+    //     list.setModel(model);
+    // }
 }

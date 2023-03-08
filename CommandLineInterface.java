@@ -60,8 +60,8 @@ public class CommandLineInterface {
     private void printHistory() {
         HistoryRecord [] history = myTaskList.getHistoryList();
         int size = history.length;
-        if(size = 0){
-            "Looks like you haven't done anything with your project!"
+        if(size == 0){
+            System.out.println("Looks like you haven't done anything with your project!");
             return;
         }
 

@@ -19,9 +19,8 @@ public class HistoryList {
     /**
      * Add a new history record to the list.
      * 
-     * @param theDescription a String description of the task
-     * @param thePrice a Float to represent the associated cost of the Task
-     * @param identifier an integer to represent the task's identifier in the TaskList
+     * @param theTask the change of task
+     * @param theChangeType the state of changing the task
      */
     public void addHistory(Task theTask, int theChangeType) {
         HistoryRecord newRecord = new HistoryRecord(theTask, theChangeType);

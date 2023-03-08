@@ -23,8 +23,8 @@ public class HistoryList {
      * @param thePrice a Float to represent the associated cost of the Task
      * @param identifier an integer to represent the task's identifier in the TaskList
      */
-    public void addHistory(String theDescription, float thePrice, int identifier) {
-        HistoryRecord newRecord = new HistoryRecord(theDescription, thePrice, identifier);
+    public void addHistory(Task theTask, int theChangeType) {
+        HistoryRecord newRecord = new HistoryRecord(theTask, theChangeType);
         history.add(newRecord);
     }
 

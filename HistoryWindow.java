@@ -2,42 +2,36 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class HistoryWindow extends JFrame {
-    private HistoryList historyList;
-    //private ArrayList<HistoryList> logs;
+public class HistoryWindow extends JPanel {
     private JScrollPane scrollPane;
-    private JList<HistoryList> list;
-
-    public HistoryWindow(HistoryList historyList) {
-        super("History");
-        this.setSize(500, 300);
-        this.setLayout(new BorderLayout());
-
-        this.historyList = new HistoryList();
-        //logs = historyList.printHistory();
-
-        DefaultListModel<HistoryList> model = new DefaultListModel<>();
-        for (HistoryList log : logs) {
-            model.addElement(log);
-        }
-
-        list = new JList<>(model);
-        list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-
-        scrollPane = new JScrollPane(list);
+    private JPanel panel;
+    public HistoryWindow() {
+        panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
+        scrollPane = new JScrollPane(panel);
+        scrollPane.setPreferredSize(new Dimension(300, 300));
         this.add(scrollPane, BorderLayout.CENTER);
     }
 
-    //Miguel: Suggested function
-    //void update(HistoryRecords [] theHistory){    
-        //print thehistory;
-   //}
-
     public void update(HistoryRecord[] theHistory) {
-        DefaultListModel<HistoryRecord> model = (DefaultListModel<HistoryRecord>) list.getModel();
-        for (HistoryRecord log : theHistory) {
-            model.addElement(log);
+        panel.removeAll();
+        for (int i = 0; i < theHistory.length; i++) {
+            JLabel task = new JLabel(theHistory[i].getTask().toString());
+            JLabel type = new JLabel(Integer.toString(theHistory[i].getChangeType()));
+            JLabel time = new JLabel(theHistory[i].getDateAndTime().toString());
+
+            JPanel p = new JPanel();
+            p.add(task);
+            p.add(type);
+            p.add(time);
+
+            panel.add(p);
         }
-        list.setModel(model);
+        panel.revalidate();
     }
+
+    public JScrollPane getScrollPane() {
+        return scrollPane;
+    }
+
 }

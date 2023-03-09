@@ -26,6 +26,9 @@ public class TaskWindow extends JPanel {
         scrollPane = new JScrollPane(panel);
         scrollPane.setPreferredSize(new Dimension(300, 300));
         this.add(scrollPane, BorderLayout.CENTER);
+        JLabel noTasksSelectedLabel = new JLabel("No tasks selected");
+        noTasksSelectedLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        panel.add(noTasksSelectedLabel);
     }
 
     /**
@@ -33,17 +36,25 @@ public class TaskWindow extends JPanel {
      * 
      * Removes all the previous components from the panel and adds a new JPanel for each 
      * task. Each JPanel contains a JLabel with the task's name and details.
+     * If the tasks array is empty, displays a JLabel with the text "No tasks selected".
      * 
      * @param tasks an array of Task objects to be displayed in the panel.
      */
     public void displayTasks(Task[] tasks) {
         panel.removeAll();
-        for (Task task: tasks) {
-            JPanel taskPanel = createTaskPanel(task);
-            panel.add(taskPanel);
+        if (tasks.length == 0) {
+            JLabel noTasksSelectedLabel = new JLabel("No tasks selected");
+            noTasksSelectedLabel.setHorizontalAlignment(SwingConstants.CENTER);
+            panel.add(noTasksSelectedLabel);
+        } else {
+            for (Task task: tasks) {
+                JPanel taskPanel = createTaskPanel(task);
+                panel.add(taskPanel);
+            }
         }
         panel.revalidate();
     }
+
 
     /**
      * Creates a JPanel for displaying a task.

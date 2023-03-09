@@ -1,11 +1,11 @@
 /**
-
-HistoryWindow class for displaying the history of transactions in a scrollable panel.
-The class extends JPanel and contains a JScrollPane and a JPanel as its components.
-It provides a method to update the content of the panel based on the provided history records.
-@author Jacky Fong
-@version Red.1
-*/
+ * HistoryWindow class for displaying the history of transactions in a scrollable panel.
+ * The class extends JPanel and contains a JScrollPane and a JPanel as its components.
+ * It provides a method to update the content of the panel based on the provided history records.
+ * 
+ * @author Jacky Fong
+ * @version Red.1
+ */
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
@@ -13,6 +13,7 @@ import java.util.ArrayList;
 public class HistoryWindow extends JPanel {
     private JScrollPane scrollPane;
     private JPanel panel;
+
     /**
      * Constructor for the HistoryWindow class.
      * 
@@ -27,15 +28,21 @@ public class HistoryWindow extends JPanel {
     }
 
     /**
-     * Updates the content of the panel based on the provided history records.
-     * 
-     * Removes all the previous components from the panel and adds new JLabels for each 
-     * history record. Each JLabel contains the task, change type, and date and time of the record.
-     * 
-     * @param theHistory an array of HistoryRecord objects to be displayed in the panel.
-     */
-    public void update(HistoryRecord[] theHistory) {
-        panel.removeAll();
+    * Updates the content of the panel based on the provided history records.
+    *
+    * Removes all the previous components from the panel and adds new JLabels for each
+    * history record. Each JLabel contains the task, change type, and date and time of the record.
+    *
+    * If the array is empty, displays "History empty" on the panel.
+    *
+    * @param theHistory an array of HistoryRecord objects to be displayed in the panel.
+    */
+public void update(HistoryRecord[] theHistory) {
+    panel.removeAll();
+    if (theHistory.length == 0) {
+        JLabel empty = new JLabel("History empty");
+        panel.add(empty);
+    } else {
         for (int i = 0; i < theHistory.length; i++) {
             JLabel task = new JLabel(theHistory[i].getTask().toString());
             JLabel type = new JLabel(Integer.toString(theHistory[i].getChangeType()));
@@ -48,8 +55,11 @@ public class HistoryWindow extends JPanel {
 
             panel.add(p);
         }
-        panel.revalidate();
     }
+    panel.revalidate();
+}
+
+
 
     /**
      * Returns the JScrollPane component of the HistoryWindow.

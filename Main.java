@@ -10,6 +10,7 @@ public class Main {
         JButton aboutButton = new JButton("About");
         AboutWindow myAboutWindow = new AboutWindow();
         HistoryWindow myHistoryWindow = new HistoryWindow();
+        myHistoryWindow.update(new HistoryRecord[0]);
         TaskWindow myTaskWindow = new TaskWindow();
         JPanel taskPanel = new JPanel();
 

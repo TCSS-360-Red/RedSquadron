@@ -38,6 +38,14 @@ public class Task {
         return (theID == myIdentifier);
     
     }
+    /**Formats data into a string. */
+    public String toString(){
+        String returnString = myTaskDescription;
+        returnString += "        $";
+        returnString += Float.toString(myTaskCost);
+
+        return returnString;
+    }
 
     
 }

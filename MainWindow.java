@@ -95,11 +95,6 @@ public class MainWindow extends JFrame {
         super.setVisible(true);
         super.setLocation(1000, 300);
         super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        //test code
-
-        myTaskList.AddTask("pee pee", 20.0f);
-        myTaskWindow.displayTasks(myTaskList.copyList());
     }
 
 

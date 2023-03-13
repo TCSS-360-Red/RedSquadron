@@ -20,6 +20,7 @@ public class MainWindow extends JFrame {
 
     private TaskList myTaskList;
     private AboutWindow myAboutwindow;
+    private TaskInputWindow myTaskInputWindow;
 
     private JMenuItem addTaskButton;
     private JMenuItem aboutPageButton;
@@ -33,6 +34,7 @@ public class MainWindow extends JFrame {
         myTaskWindow = new TaskWindow();
         myHeaderWindow = new HeaderWindow();
         myTaskList = new TaskList();
+        myTaskInputWindow = new TaskInputWindow();
         myAboutwindow = new AboutWindow();
         myMenuBar = new JMenuBar();
 
@@ -57,6 +59,17 @@ public class MainWindow extends JFrame {
                 myAboutwindow.open();
                 
             }
+        });
+        addTaskButton.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+              myTaskInputWindow.getTaskInput();
+              myTaskList.AddTask(myTaskInputWindow.getString(), myTaskInputWindow.getFloat());
+              myTaskWindow.displayTasks(myTaskList.copyList());
+              myHistoryWindow.update(myTaskList.getHistoryList());
+            }
+            
         });
     }
 

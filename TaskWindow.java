@@ -26,7 +26,7 @@ public class TaskWindow extends JPanel {
         scrollPane = new JScrollPane(panel);
         scrollPane.setPreferredSize(new Dimension(300, 300));
         this.add(scrollPane, BorderLayout.CENTER);
-        JLabel noTasksSelectedLabel = new JLabel("No tasks selected");
+        JLabel noTasksSelectedLabel = new JLabel("No task(s) added");
         noTasksSelectedLabel.setHorizontalAlignment(SwingConstants.CENTER);
         panel.add(noTasksSelectedLabel);
     }

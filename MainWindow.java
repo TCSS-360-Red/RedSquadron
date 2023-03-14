@@ -37,7 +37,11 @@ public class MainWindow extends JFrame {
         myMenuBar = new JMenuBar();
 
         setTitle("Budget Balancer 3000"); // Set the title of the window
-        
+
+        Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("BB3KDollarLogo.png"));
+        setIconImage(icon);
+
+
         InitializeButtons();
         SetupWindows();
     }

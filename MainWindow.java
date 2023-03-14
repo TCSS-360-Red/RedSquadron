@@ -35,8 +35,9 @@ public class MainWindow extends JFrame {
         myTaskInputWindow = new TaskInputWindow();
         myAboutwindow = new AboutWindow();
         myMenuBar = new JMenuBar();
-        //myEditMenu = new JMenu("Edit");
 
+        setTitle("Budget Balancer 3000"); // Set the title of the window
+        
         InitializeButtons();
         SetupWindows();
     }

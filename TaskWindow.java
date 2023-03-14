@@ -1,11 +1,10 @@
 /**
-
-TaskWindow class for displaying a list of tasks in a scrollable panel.
-The class extends JPanel and contains a JScrollPane and a JPanel as its components.
-It provides a method to update the content of the panel based on the provided tasks.
-It also contains a private method to create a JPanel for each task to be displayed.
-@author Jacky Fong
-@version Red.1
+* TaskWindow class for displaying a list of tasks in a scrollable panel.
+* The class extends JPanel and contains a JScrollPane and a JPanel as its components.
+* It provides a method to update the content of the panel based on the provided tasks.
+* It also contains a private method to create a JPanel for each task to be displayed.
+* @author Jacky Fong
+* @version Red.1
 */
 import javax.swing.*;
 import java.awt.*;

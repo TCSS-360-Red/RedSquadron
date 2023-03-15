@@ -30,6 +30,7 @@ public class MainWindow extends JFrame {
     /**Initializes the GUI and the backend model.
      * 
      * @author Miguel Ramos
+     * @author Jacky Fong
      */
     public MainWindow() {
 

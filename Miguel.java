@@ -1,3 +1,7 @@
+/**A simple place to hold a developer bio.
+ * 
+ * @author Miguel Ramos
+ */
 public class Miguel implements Developer {
     
     public String getDevInfo() {

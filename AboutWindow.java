@@ -10,7 +10,10 @@ public class AboutWindow {
     private  JFrame myWindow;
     private JLabel myLabel;
     private Developer devTeamInfo[];
-
+/**Instantiates a developer bio for each member of the group, as well as the Window it uses to display them.
+ * 
+ * @author Miguel Ramos
+ */
     AboutWindow(){
         devTeamInfo = new Developer[4];
         devTeamInfo[0] = new Miguel();
@@ -20,7 +23,10 @@ public class AboutWindow {
         myWindow = new JFrame("About");
         myLabel = new JLabel();
     }
-
+/**Formats and pastes Developer Bios to a label and displays them in a window.
+ * 
+ * @author Miguel Ramos
+ */
     public void open(){
         String devString;
         int devTeamSize;

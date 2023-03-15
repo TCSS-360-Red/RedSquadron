@@ -86,6 +86,10 @@ public class TaskList {
         myHeader.setDueDate(theHeader.getDueDate());
     }
 
+    /**Get a copy of the History List.
+     * 
+     * @return an array representation of the History List of this Task List.
+     */
     public HistoryRecord[] getHistoryList(){
         return myHistoryList.getHistoryList();
     }

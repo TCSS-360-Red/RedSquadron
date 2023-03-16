@@ -21,9 +21,11 @@ public class MainWindow extends JFrame {
     private TaskList myTaskList;
     private AboutWindow myAboutwindow;
     private TaskInputWindow myTaskInputWindow;
+    private HeaderInputWindow myHeaderInputWindow;
 
     private JMenuItem addTaskButton;
     private JMenuItem aboutPageButton;
+    private JMenuItem editHeaderButton;
     private JMenuBar myMenuBar;
     private JMenu myEditMenu;
 
@@ -39,6 +41,7 @@ public class MainWindow extends JFrame {
         myTaskWindow = new TaskWindow();
         myHistoryWindow = new HistoryWindow();
         myTaskInputWindow = new TaskInputWindow();
+        myHeaderInputWindow = new HeaderInputWindow();
         myAboutwindow = new AboutWindow();
         myMenuBar = new JMenuBar();
 
@@ -59,9 +62,11 @@ public class MainWindow extends JFrame {
     private void InitializeButtons() {
         addTaskButton = new JMenuItem("Add Task");
         aboutPageButton = new JMenuItem("About");
+        editHeaderButton = new JMenuItem("Edit Header");
 
         myEditMenu = new JMenu("Edit");
         myEditMenu.add(addTaskButton);
+        myEditMenu.add(editHeaderButton);
 
         myMenuBar.add(myEditMenu);
         myMenuBar.add(aboutPageButton);
@@ -85,6 +90,16 @@ public class MainWindow extends JFrame {
                     myHistoryWindow.update(myTaskList.getHistoryList());
                     myHeaderWindow.updateHeader(myTaskList.getHeaderState());
                 }
+            }
+
+        });
+        editHeaderButton.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                myHeaderInputWindow.getHeaderInput();
+                myTaskList.AssignHeader(myHeaderInputWindow.getHeader());
+                myHeaderWindow.updateHeader(myTaskList.getHeaderState());
             }
 
         });
